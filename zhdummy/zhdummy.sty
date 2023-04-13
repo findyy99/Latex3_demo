@@ -1,0 +1,39 @@
+% zhdummy.sty
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{expl3}
+\ProvidesExplPackage{zhdummy}{2019/11/20}{0.1}{Chinese dummy text(exper)}
+
+\def\mypkgname{zhdummy}
+
+\tl_const:Nn \c_zhdummy_text_i { 天地玄黄，宇宙洪荒。 }
+\tl_const:Nn \c_zhdummy_text_ii { 日月盈昃，辰宿列张。 }
+\tl_const:Nn \c_zhdummy_text_iii { 寒来暑往，秋收冬藏。}
+\tl_const:Nn \c_zhdummy_text_iv { 闰馀成岁，律吕调阳。 }
+\tl_const:Nn \c_zhdummy_text_v     { 云腾致雨，露结为霜。 }
+\tl_const:Nn \c_zhdummy_text_vi    { 金生丽水，玉出昆冈。 }
+\tl_const:Nn \c_zhdummy_text_vii   { 剑号巨阙，珠称夜光。 }
+\tl_const:Nn \c_zhdummy_text_viii  { 果珍李柰，菜重芥姜。 }
+\tl_const:Nn \c_zhdummy_text_ix    { 海咸河淡，鳞潜羽翔。 }
+\tl_const:Nn \c_zhdummy_text_x     { 龙师火帝，鸟官人皇。 }
+\tl_const:Nn \c_zhdummy_text_xi    { 始制文字，乃服衣裳。 }
+\tl_const:Nn \c_zhdummy_text_xii   { 推位让国，有虞陶唐。 }
+\tl_const:Nn \c_zhdummy_text_xiii  { 吊民伐罪，周发殷汤。 }
+\tl_const:Nn \c_zhdummy_text_xiv   { 坐朝问道，垂拱平章。 }
+\tl_const:Nn \c_zhdummy_text_xv    { 爱育黎首，臣伏戎羌。 }
+\tl_const:Nn \c_zhdummy_text_xvi   { 遐迩壹体，率宾归王。 }
+\tl_const:Nn \c_zhdummy_text_xvii  { 鸣凤在树，白驹食场。 }
+\tl_const:Nn \c_zhdummy_text_xviii { 化被草木，赖及万方。 }
+
+\NewDocumentCommand \zhdummy { o }
+{
+    \IfNoValueTF{#1}{
+        \tl_use:N \c_zhdummy_text_i
+        \tl_use:N \c_zhdummy_text_ii
+        \tl_use:N \c_zhdummy_text_iii
+        \tl_use:N \c_zhdummy_text_iv
+        \tl_use:N \c_zhdummy_text_v
+    }
+    {
+        \tl_use:c { c_zhdummy_text_ \int_to_roman:n {#1} }
+    }
+}
